@@ -5,10 +5,7 @@ import org.kurgu.moviemanagement.Repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -35,25 +32,42 @@ public class CategoryController {
 
     @PostMapping("/category/add")
     public String addCategory(@ModelAttribute("category") Category category) {
+        if(category==null){
+            System.out.println("Category is null");
+            return "redirect:/category";
+        }
         categoryRepository.save(category);
         return "redirect:/category";
     }
-    @GetMapping("/category/update/{cid}")
-    public String updateCategory(Model model, @PathVariable int cid) {
-        Optional<Category> category = categoryRepository.findById(cid);
-        model.addAttribute("category", category.get());
-        return "category/updateCategory";
+    @GetMapping("/category/del")
+    public String deleteCategory(Model model,@RequestParam("id") int id) {
+        Optional<Category> category = categoryRepository.findById(id);
+        model.addAttribute("category", category);
+        return "category/delcategory";
+    }
+    @PostMapping("/category/del")
+    public String categoryDelete(@ModelAttribute("category") Category category) {
+        if(category==null){
+            System.out.println("Category is null");
+            return "redirect:/category";
+        }
+        categoryRepository.delete(category);
+        return "redirect:/category";
+    }
+    @GetMapping("/category/update")
+    public String updateCategory(Model model, @RequestParam("id") int id) {
+        Optional<Category> category = categoryRepository.findById(id);
+        model.addAttribute("category", category);
+        return "/category/updateCategory";
     }
 
     @PostMapping("/category/update")
-    public String categoryUpdate(@ModelAttribute("category") Category category) {
+    public String categoryUpdate(Category category) {
+        if(category==null){
+            System.out.println("Category is null");
+            return "redirect:/category";
+        }
         categoryRepository.save(category);
-        return "redirect:/category";
-    }
-
-    @PostMapping("/category/delete/{cid}")
-    public String deleteCategory(@PathVariable int cid) {
-        categoryRepository.deleteById(cid);
         return "redirect:/category";
     }
 }

@@ -1,5 +1,6 @@
 package org.kurgu.moviemanagement.Repositories;
 
+import org.kurgu.moviemanagement.DTOs.ClassificationViewModel;
 import org.kurgu.moviemanagement.Models.Classification;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Categories</title>
+</head>
+<body>
+<div id="placeholder"></div>
+<p>
+<h4>CATEGORIES</h4>
+</p>
+<div>
+    <a href="/category/add">ADD</a>
+    <a href="/">HOME</a>
+</div>
+<br>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>NAME</th>
+            <th>ADDRESS</th>
+            <th colspan="3">OPERATIONS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="c : ${categoryList}">
+            <td th:text="${c.name}"></td>
+            <td><button th:onclick="update([[${c.id}]])">Update</button></td>
+            <td><button th:onclick="remove([[${c.id}]])">Delete</button></td>
+            <td><button th:onclick="classification([[${c.id}]])">Classification</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    function update(id){
+        $.ajax({
+            url: '/category/update',
+            type: 'get',
+            data: {'id':id},
+            success: function (data){
+                $('#placeholder').html(data);
+            },
+            error: function (result){
+                alert("Error: " + result);
+            }
+        });
+    }
+
+    function remove(id){
+        $.ajax({
+            url: '/category/del',
+            type: 'get',
+            data: {'id':id},
+            success: function (data){
+                $('#placeholder').html(data)
+            },
+            error: function (result){
+                alert("Error: " + result);
+            }
+        });
+    }
+
+    function classification(id){
+        alert("The id : " + id);
+    }
+</script>
+</body>
+</html>

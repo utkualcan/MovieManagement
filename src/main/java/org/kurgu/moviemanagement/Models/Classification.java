@@ -10,7 +10,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Entity(name="classification")
+@Entity(name= "templates/classification")
 
 public class Classification {
     @Id
