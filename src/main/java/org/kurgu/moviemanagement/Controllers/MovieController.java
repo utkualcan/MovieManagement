@@ -58,5 +58,5 @@ public class MovieController {
         movieRepository.deleteById(id);
         return "redirect:/movies";
     }
-    
+
 }
