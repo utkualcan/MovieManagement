@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/movie")
 public class MovieController {
     @Autowired
     private final MovieRepository movieRepository;
@@ -21,19 +20,19 @@ public class MovieController {
     public String getMovies(Model model) {
         Iterable<Movie> movies = movieRepository.findAll();
         model.addAttribute("movies", movies);
-        return "movies/index";
+        return "/movies/index";
     }
 
     @GetMapping("/movies/add")
     public String addMovieForm(Model model) {
         model.addAttribute("movie", new Movie());
-        return "movies/addmovie";
+        return "/movies/addmovie";
     }
 
     @PostMapping("/movies/add")
     public String addMovie(@ModelAttribute Movie movie) {
         movieRepository.save(movie);
-        return "redirect:/movies/index";
+        return "redirect:/movies";
     }
 
     @GetMapping("/movies/update/{id}")
@@ -57,8 +56,7 @@ public class MovieController {
     @GetMapping("/movies/delete/{id}")
     public String deleteMovie(@PathVariable("id") int id) {
         movieRepository.deleteById(id);
-        return "redirect:/movies/index";
+        return "redirect:/movies";
     }
-
-
+    
 }

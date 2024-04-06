@@ -12,15 +12,15 @@
         <th>Name</th>
         <th>Action</th>
     </tr>
-    <tr th:each="category : ${category}">
+    <tr th:each="category : ${berkay}">
         <td th:text="${category.category_id}"></td>
         <td th:text="${category.name}"></td>
         <td>
-            <a th:href="@{/category/updatecategory.html/{id}(id=${category.category_id})}">Update</a>
-            <a th:href="@{/category/delcategory.html/{id}(id=${category.category_id})}">Delete</a>
+            <a th:href="@{category/update/{id}(id=${category.category_id})}">Update</a>
+            <a th:href="@{category/delete/{id}(id=${category.category_id})}">Delete</a>
         </td>
     </tr>
 </table>
-<a href="/categories/add">Add New Category</a>
+<a href="/category/add">Add New Category</a>
 </body>
 </html>

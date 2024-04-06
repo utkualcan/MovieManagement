@@ -6,12 +6,12 @@
 </head>
 <body>
 <h2>Add New Category</h2>
-<form th:action="@{/category/addcategory.html}" th:object="${category}" method="post">
+<form th:action="@{/category/add}" th:object="${berkay}" method="post">
     Name: <label>
-    <input type="text" th:field="*{category.name}">
+    <input type="text" th:field="${berkay.name}">
 </label><br>
     <button type="submit">Save</button>
 </form>
-<a href="/categories/index">Back to Category List</a>
+<a href="/category">Back to Category List</a>
 </body>
 </html>

@@ -2,13 +2,14 @@ package org.kurgu.moviemanagement.Repositories;
 
 import org.kurgu.moviemanagement.DTOs.ClassificationViewModel;
 import org.kurgu.moviemanagement.Models.Classification;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface ClassificationRepository extends CrudRepository<Classification, Integer> {
+public interface ClassificationRepository extends JpaRepository<Classification, Integer> {
 //    @Query("SELECT c from classification c WHERE c.isDeleted = false")
 //    Iterable<Classification> getAll();
 //

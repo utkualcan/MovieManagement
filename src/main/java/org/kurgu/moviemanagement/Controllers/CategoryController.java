@@ -1,7 +1,9 @@
 package org.kurgu.moviemanagement.Controllers;
 
 import org.kurgu.moviemanagement.Models.Category;
+import org.kurgu.moviemanagement.Models.Movie;
 import org.kurgu.moviemanagement.Repositories.CategoryRepository;
+import org.kurgu.moviemanagement.Repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,23 +21,18 @@ public class CategoryController {
     @GetMapping("/category")
     public String getIndex(Model model) {
         Iterable<Category> categories = categoryRepository.findAll();
-        model.addAttribute("categories", categories);
+        model.addAttribute("berkay", categories);
         return "category/index";
     }
 
     @GetMapping("/category/add")
     public String addCategory(Model model) {
-        Category category = new Category();
-        model.addAttribute("category", category);
-        return "category/index";
+        model.addAttribute("berkay", new Category());
+        return "category/addcategory";
     }
 
     @PostMapping("/category/add")
-    public String addCategory(@ModelAttribute("category") Category category) {
-        if(category==null){
-            System.out.println("Category is null");
-            return "redirect:/category";
-        }
+    public String addCategory(@ModelAttribute("berkay") Category category) {
         categoryRepository.save(category);
         return "redirect:/category";
     }
@@ -43,7 +40,7 @@ public class CategoryController {
     public String updateCategoryForm(@PathVariable("id") int id, Model model) {
         Optional<Category> optionalCategory = categoryRepository.findById(id);
         if (optionalCategory.isPresent()) {
-            model.addAttribute("category", optionalCategory.get());
+            model.addAttribute("berkay", optionalCategory.get());
             return "category/updatecategory";
         } else {
             return "redirect:/category";
@@ -57,7 +54,7 @@ public class CategoryController {
         return "redirect:/category";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/category/delete/{id}")
     public String deleteCategory(@PathVariable("id") int id) {
         categoryRepository.deleteById(id);
         return "redirect:/category";
