@@ -7,6 +7,8 @@ import lombok.*;
 
 import java.util.Date;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -25,35 +27,4 @@ public class Classification {
     @Column(name="date")
     private Date date;
 
-    public int getClassification_id() {
-        return classification_id;
-    }
-
-    public void setClassification_id(int classification_id) {
-        this.classification_id = classification_id;
-    }
-
-    public int getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(int movieId) {
-        this.movieId = movieId;
-    }
-
-    public int getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }
