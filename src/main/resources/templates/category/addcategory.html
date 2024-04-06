@@ -1,26 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Category</title>
+    <title>Add New Category</title>
 </head>
 <body>
-<h1>Add a new category</h1>
-<form th:action="@{/category/add}" th:object=${category} method="post">
-    <fieldset>
-        <legend>Category</legend>
-        <div>
-            <label htmlFor="cid">Id: </label>
-            <input type="text" id="cid" th:field="*{id}" />
-        </div>
-        <div>
-            <label htmlFor="name">Name: </label>
-            <input type="text" id="name" th:field="*{name}" />
-        </div>
-        <div>
-            <button type="submit">Save</button>
-        </div>
-    </fieldset>
+<h2>Add New Category</h2>
+<form th:action="@{/category/addcategory.html}" th:object="${category}" method="post">
+    Name: <input type="text" th:field="*{category.name}"><br>
+    <button type="submit">Save</button>
 </form>
+<a href="/categories/index">Back to Category List</a>
 </body>
 </html>

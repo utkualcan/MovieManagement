@@ -1,34 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Add Movie</title>
+    <title>Add New Movie</title>
 </head>
 <body>
-<h1>Add a new movie</h1>
-<form th:action="@{/movie/add}" th:object=${movie} method="post">
-    <fieldset>
-        <legend>Movie</legend>
-        <div>
-            <label htmlFor="cid">Id: </label>
-            <input type="text" id="cid" th:field="*{id}" />
-        </div>
-        <div>
-            <label htmlFor="title">Title: </label>
-            <input type="text" id="title" th:field="*{title}" />
-        </div>
-        <div>
-            <label htmlFor="director">Director: </label>
-            <input type="text" id="director" th:field="*{director}" />
-        </div>
-        <div>
-            <label htmlFor="year">Year: </label>
-            <input type="text" id="year" th:field="*{year}" />
-        </div>
-        <div>
-            <button type="submit">Save</button>
-        </div>
-    </fieldset>
+<h2>Add New Movie</h2>
+<form th:action="@{/movies/add}" th:object="${movie}" method="post">
+    Title: <label>
+    <input type="text" th:field="*{title}">
+</label><br>
+    Director: <label>
+    <input type="text" th:field="*{director}">
+</label><br>
+    Year: <label>
+    <input type="number" th:field="*{year}">
+</label><br>
+    <button type="submit">Save</button>
 </form>
+<a href="/movies/index">Back to Movie List</a>
 </body>
 </html>

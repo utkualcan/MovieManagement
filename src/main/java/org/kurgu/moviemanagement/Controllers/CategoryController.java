@@ -27,7 +27,7 @@ public class CategoryController {
     public String addCategory(Model model) {
         Category category = new Category();
         model.addAttribute("category", category);
-        return "category/addCategory";
+        return "category/index";
     }
 
     @PostMapping("/category/add")
@@ -39,35 +39,29 @@ public class CategoryController {
         categoryRepository.save(category);
         return "redirect:/category";
     }
-    @GetMapping("/category/del")
-    public String deleteCategory(Model model,@RequestParam("id") int id) {
-        Optional<Category> category = categoryRepository.findById(id);
-        model.addAttribute("category", category);
-        return "category/delcategory";
-    }
-    @PostMapping("/category/del")
-    public String categoryDelete(@ModelAttribute("category") Category category) {
-        if(category==null){
-            System.out.println("Category is null");
+    @GetMapping("/category/update/{id}")
+    public String updateCategoryForm(@PathVariable("id") int id, Model model) {
+        Optional<Category> optionalCategory = categoryRepository.findById(id);
+        if (optionalCategory.isPresent()) {
+            model.addAttribute("category", optionalCategory.get());
+            return "category/updatecategory";
+        } else {
             return "redirect:/category";
         }
-        categoryRepository.delete(category);
-        return "redirect:/category";
-    }
-    @GetMapping("/category/update")
-    public String updateCategory(Model model, @RequestParam("id") int id) {
-        Optional<Category> category = categoryRepository.findById(id);
-        model.addAttribute("category", category);
-        return "/category/updateCategory";
     }
 
-    @PostMapping("/category/update")
-    public String categoryUpdate(Category category) {
-        if(category==null){
-            System.out.println("Category is null");
-            return "redirect:/category";
-        }
+    @PostMapping("/category/update/{id}")
+    public String updateCategory(@PathVariable("id") int id, @ModelAttribute Category category) {
+        category.setCategory_id(id);
         categoryRepository.save(category);
         return "redirect:/category";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteCategory(@PathVariable("id") int id) {
+        categoryRepository.deleteById(id);
+        return "redirect:/category";
+    }
+
+
 }

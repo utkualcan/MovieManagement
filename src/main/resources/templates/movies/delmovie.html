@@ -1,10 +1,16 @@
+<!-- templates/movie/delete.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Delete Movie</title>
 </head>
 <body>
-
+<h2>Delete Movie</h2>
+<p>Are you sure you want to delete this movie?</p>
+<form th:action="@{'/movies/delete/' + ${movie.id}}" method="post">
+    <button type="submit">Delete</button>
+</form>
+<a href="/movies/index">Cancel</a>
 </body>
 </html>
