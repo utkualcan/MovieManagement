@@ -7,7 +7,9 @@
 <body>
 <h2>Add New Category</h2>
 <form th:action="@{/category/addcategory.html}" th:object="${category}" method="post">
-    Name: <input type="text" th:field="*{category.name}"><br>
+    Name: <label>
+    <input type="text" th:field="*{category.name}">
+</label><br>
     <button type="submit">Save</button>
 </form>
 <a href="/categories/index">Back to Category List</a>

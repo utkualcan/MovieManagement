@@ -13,11 +13,11 @@
         <th>Action</th>
     </tr>
     <tr th:each="category : ${category}">
-        <td th:text="${category.id}"></td>
+        <td th:text="${category.category_id}"></td>
         <td th:text="${category.name}"></td>
         <td>
-            <a th:href="@{/category/updatecategory.html/{id}(id=${category.id})}">Update</a>
-            <a th:href="@{/category/delcategory.html/{id}(id=${category.id})}">Delete</a>
+            <a th:href="@{/category/updatecategory.html/{id}(id=${category.category_id})}">Update</a>
+            <a th:href="@{/category/delcategory.html/{id}(id=${category.category_id})}">Delete</a>
         </td>
     </tr>
 </table>
