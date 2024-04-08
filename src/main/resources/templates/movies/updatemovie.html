@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2>Update Movie</h2>
-<form th:action="@{/movies/updatemovie.html/{id}(id=${movie.movie_id})}" th:object="${movie}" method="post">
+<form th:action="@{/movies/update/{id}(id=${movie.movie_id})}" th:object="${movie}" method="post">
     <input type="hidden" th:field="*{movie_id}">
     Title: <label>
     <input type="text" th:field="*{title}">
@@ -19,6 +19,6 @@
 </label><br>
     <button type="submit">Update</button>
 </form>
-<a href="/movies/index">Back to Movie List</a>
+<a href="/movies">Back to Movie List</a>
 </body>
 </html>

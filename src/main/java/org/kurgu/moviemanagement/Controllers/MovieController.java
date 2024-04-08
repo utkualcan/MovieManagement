@@ -42,7 +42,7 @@ public class MovieController {
             model.addAttribute("movie", optionalMovie.get());
             return "/movies/updatemovie";
         } else {
-            return "redirect:/movies/index";
+            return "redirect:/movies";
         }
     }
 
@@ -50,7 +50,7 @@ public class MovieController {
     public String updateMovie(@PathVariable("id") int id, @ModelAttribute Movie movie) {
         movie.setMovie_id(id);
         movieRepository.save(movie);
-        return "redirect:/movies/index";
+        return "redirect:/movies";
     }
 
     @GetMapping("/movies/delete/{id}")

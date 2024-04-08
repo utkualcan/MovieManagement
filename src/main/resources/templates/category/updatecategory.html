@@ -6,13 +6,13 @@
 </head>
 <body>
 <h2>Update Category</h2>
-<form th:action="@{/category/updatecategory.html/{id}(id=${berkay.category_id})}" th:object="${berkay}" method="post">
+<form th:action="@{/category/update/{id}(id=${berkay.category_id})}" th:object="${berkay}" method="post">
     <input type="hidden" th:field="*{category_id}">
     Name: <label>
     <input type="text" th:field="*{name}">
 </label><br>
     <button type="submit">Update</button>
 </form>
-<a href="/categories/index">Back to Category List</a>
+<a href="/category">Back to Category List</a>
 </body>
 </html>
