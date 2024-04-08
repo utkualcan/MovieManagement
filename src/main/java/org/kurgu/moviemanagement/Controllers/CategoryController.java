@@ -1,9 +1,7 @@
 package org.kurgu.moviemanagement.Controllers;
 
 import org.kurgu.moviemanagement.Models.Category;
-import org.kurgu.moviemanagement.Models.Movie;
 import org.kurgu.moviemanagement.Repositories.CategoryRepository;
-import org.kurgu.moviemanagement.Repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
