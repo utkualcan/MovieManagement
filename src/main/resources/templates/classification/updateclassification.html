@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Classification</title>
+</head>
+<body>
+<h2>Update Movie</h2>
+<form th:action="@{/classification/update/{id}(id=${serhat.classification_id})}" th:object="${serhat}" method="post">
+    <input type="hidden" th:field="*{classification_id}">
+    <label>
+        Movie:
+        <select th:field="*{movieId}">
+            <option th:each="mehmet : ${movies}" th:value="${mehmet.movie_id}" th:text="${mehmet.title}"></option>
+        </select>
+    </label><br>
+    <label>
+        Category:
+        <select th:field="*{categoryId}">
+            <option th:each="ömer : ${category}" th:value="${ömer.category_id}" th:text="${ömer.name}"></option>
+        </select>
+    </label><br>
+    <button type="submit">Update</button>
+</form>
+<a href="/classification">Back to Classification List</a>
+</body>
+</html>

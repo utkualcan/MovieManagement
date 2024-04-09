@@ -22,6 +22,7 @@
         <td>
             <a th:href="@{/movies/update/{id}(id=${movie.movie_id})}">Update</a>
             <a th:href="@{/movies/delete/{id}(id=${movie.movie_id})}">Delete</a>
+            <a th:href="@{/classification/classificatemovie/{id}(id=${movie.movie_id})}">Classification</a>
         </td>
     </tr>
 </table>

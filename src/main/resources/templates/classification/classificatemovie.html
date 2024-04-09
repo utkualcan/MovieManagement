@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Classificate Movie</title>
+</head>
+<body>
+<h2>Classificate Movie</h2>
+<form th:action="@{/classification/classificatemovie/{id}(id=${classificate.movieId})}" th:object="${classificate}" method="post">
+    <input type="hidden" th:field="*{movieId}">
+    <label>
+        Movie:
+        <select th:field="*{categoryId}">
+            <option th:each="mehmet : ${categories}" th:value="${mehmet.category_id}" th:text="${mehmet.name}"></option>
+        </select>
+    </label><br>
+    <button type="submit">Classificate</button>
+</form>
+<a href="/category">Back to Movie List</a>
+</body>
+</html>
