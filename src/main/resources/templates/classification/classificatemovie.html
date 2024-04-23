@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Classificate Movie</title>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../category/index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<h2>Classificate Movie</h2>
+<header class="header">
+    <h1 class="logo">MOVIETIFY</h1>
+    <nav>
+        <a href="category">Category</a>
+        <a href="movies">Movie</a>
+        <a href="classification">Classification</a>
+    </nav>
+</header>
+<section>
+
+<h2 class="section-title">Classificate Movie</h2>
 <form th:action="@{/classification/classificatemovie/{id}(id=${classificate.movieId})}" th:object="${classificate}" method="post">
     <input type="hidden" th:field="*{movieId}">
     <label>
@@ -17,5 +30,7 @@
     <button type="submit">Classificate</button>
 </form>
 <a href="/category">Back to Movie List</a>
+</section>
+
 </body>
 </html>

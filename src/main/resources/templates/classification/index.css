@@ -1,0 +1,37 @@
+select {
+    width: 40%;
+    height: 2rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background: white;
+    margin: 1rem 0;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all ease-in 0.3s;
+}
+
+button:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+a {
+    background: black;
+    display: inline-block;
+    width: 100%;
+    text-decoration: none;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    transition: all ease-in 0.3s;
+    border-radius: 0.5rem;
+}
+
+a:hover {
+    background: rgba(0,0,0,.7);
+}

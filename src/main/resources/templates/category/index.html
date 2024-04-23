@@ -3,25 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Category List</title>
+
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="index.css">
+
 </head>
 <body>
-<h2>Category List</h2>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Action</th>
-    </tr>
-    <tr th:each="category : ${berkay}">
-        <td th:text="${category.category_id}"></td>
-        <td th:text="${category.name}"></td>
-        <td>
-            <a th:href="@{category/update/{id}(id=${category.category_id})}">Update</a>
-            <a th:href="@{category/delete/{id}(id=${category.category_id})}">Delete</a>
-            <a th:href="@{/classification/classificatecategory/{id}(id=${category.category_id})}">Classification</a>
-        </td>
-    </tr>
-</table>
-<a href="/category/add">Add New Category</a>
+<header class="header">
+    <h1 class="logo">MOVIETIFY</h1>
+    <nav>
+        <a href="category">Category</a>
+        <a href="movies">Movie</a>
+        <a href="classification">Classification</a>
+    </nav>
+</header>
+<section>
+
+    <h2 class="section-title">Category List</h2>
+    <div>
+        <div class="table-header">
+            <p>ID</p>
+            <p>Name</p>
+            <p>Action</p>
+        </div>
+        <div class="table-item" th:each="category : ${berkay}">
+            <p th:text="${category.category_id}"></p>
+            <p th:text="${category.name}"></p>
+            <div class="table-item__actions">
+                <a th:href="@{category/update/{id}(id=${category.category_id})}" title="Update">
+                   <img src="./update.svg" width="24" height="24" alt="Update item"/>
+                </a>
+                <a th:href="@{category/delete/{id}(id=${category.category_id})}" title="Delete">
+                    <img src="./delete.svg" width="24" height="24" alt="Delete item"/>
+                </a>
+                <a th:href="@{/classification/classificatecategory/{id}(id=${category.category_id})}" title="Classification">
+                    <img src="./classification.svg" width="24" height="24" alt="Classification"/>
+
+                </a>
+            </div>
+        </div>
+    </div>
+    <a href="/category/add" class="action-btn">Add New Category</a>
+</section>
+
 </body>
 </html>

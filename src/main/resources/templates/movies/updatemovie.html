@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Movie</title>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../category/index.css">
+    <link rel="stylesheet" href="../classification/index.css">
 </head>
 <body>
-<h2>Update Movie</h2>
+<header class="header">
+    <h1 class="logo">MOVIETIFY</h1>
+    <nav>
+        <a href="category">Category</a>
+        <a href="movies">Movie</a>
+        <a href="classification">Classification</a>
+    </nav>
+</header>
+<section>
+
+<h2 class="section-title">Update Movie</h2>
 <form th:action="@{/movies/update/{id}(id=${movie.movie_id})}" th:object="${movie}" method="post">
     <input type="hidden" th:field="*{movie_id}">
     Title: <label>
-    <input type="text" th:field="*{title}">
+    <input style="padding: 0.5rem; margin-bottom: 1rem;" type="text" th:field="*{title}">
 </label><br>
     Director: <label>
-    <input type="text" th:field="*{director}">
+    <input style="padding: 0.5rem; margin-bottom: 1rem;" type="text" th:field="*{director}">
 </label><br>
     Year: <label>
-            <input type="number" th:field="*{year}">
+            <input style="padding: 0.5rem;" type="number" th:field="*{year}">
 </label><br>
     <button type="submit">Update</button>
 </form>
 <a href="/movies">Back to Movie List</a>
+</section>
+
 </body>
 </html>

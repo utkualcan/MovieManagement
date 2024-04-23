@@ -3,29 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Classification Movie List</title>
+    <link rel="stylesheet" href="../category/index.css">
+    <link rel="stylesheet" href="../index.css">
 </head>
 <body>
-<h2>Classification Movie List</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Movie</th>
-            <th>Category</th>
-            <th>Date</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr th:each="cr:${serhat}">
-            <td th:text="${cr.movie.title}"></td>
-            <td th:text="${cr.category.name}"></td>
-            <td th:text="${cr.date}"></td>
-            <td>
-                <a th:href="@{/classification/update/{id}(id=${cr.classification.classification_id})}">Update</a>
-                <a th:href="@{/classification/delete/{id}(id=${cr.classification.classification_id})}">Delete</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<header class="header">
+    <h1 class="logo">MOVIETIFY</h1>
+    <nav>
+        <a href="category">Category</a>
+        <a href="movies">Movie</a>
+        <a href="classification">Classification</a>
+    </nav>
+</header>
+<section>
+
+    <h2 class="section-title">Classification Movie List</h2>
+
+
+    <div class="table-header">
+        <p>Movie</p>
+        <p>Category</p>
+        <p>Date</p>
+        <p>Action</p>
+    </div>
+
+    <div class="table-item" th:each="cr:${serhat}">
+        <p th:text="${cr.movie.title}"></p>
+        <p th:text="${cr.category.name}"></p>
+        <p th:text="${cr.date}"></p>
+        <div class="table-item__actions">
+            <a th:href="@{/classification/update/{id}(id=${cr.classification.classification_id})}">
+                <img src="../category/update.svg" alt="Update"/>
+            </a>
+            <a th:href="@{/classification/delete/{id}(id=${cr.classification.classification_id})}">
+                <img src="../category/delete.svg" alt="Delete"/>
+
+            </a>
+        </div>
+    </div>
+
+</section>
+
 </body>
 </html>

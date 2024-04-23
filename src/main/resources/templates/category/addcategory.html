@@ -3,15 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <title>Add New Category</title>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../classification/index.css">
+
 </head>
 <body>
-<h2>Add New Category</h2>
+<header class="header">
+    <h1 class="logo">MOVIETIFY</h1>
+    <nav>
+        <a href="category">Category</a>
+        <a href="movies">Movie</a>
+        <a href="classification">Classification</a>
+    </nav>
+</header>
+<section>
+
+<h2 class="section-title">Add New Category</h2>
 <form th:action="@{/category/add}" th:object="${berkay}" method="post">
     Name: <label>
-    <input type="text" th:field="${berkay.name}">
+    <input style="padding: 0.5rem;" type="text" th:field="${berkay.name}">
 </label><br>
     <button type="submit">Save</button>
 </form>
 <a href="/category">Back to Category List</a>
+</section>
+
 </body>
 </html>

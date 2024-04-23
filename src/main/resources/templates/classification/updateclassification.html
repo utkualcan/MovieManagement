@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Classification</title>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="../category/index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<h2>Update Movie</h2>
+<header class="header">
+    <h1 class="logo">MOVIETIFY</h1>
+    <nav>
+        <a href="category">Category</a>
+        <a href="movies">Movie</a>
+        <a href="classification">Classification</a>
+    </nav>
+</header>
+<section>
+
+<h2 class="section-title">Update Movie</h2>
 <form th:action="@{/classification/update/{id}(id=${serhat.classification_id})}" th:object="${serhat}" method="post">
     <input type="hidden" th:field="*{classification_id}">
     <label>
@@ -23,5 +36,7 @@
     <button type="submit">Update</button>
 </form>
 <a href="/classification">Back to Classification List</a>
+</section>
+
 </body>
 </html>
