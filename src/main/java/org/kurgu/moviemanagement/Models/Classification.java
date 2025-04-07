@@ -2,9 +2,7 @@ package org.kurgu.moviemanagement.Models;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDate;
-
 
 @Setter
 @Getter
@@ -12,12 +10,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Data
 @Entity(name= "classification")
-
 public class Classification {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int classification_id;
+    @Column(name = "classification_id")
+    private int classificationId;
 
     @Column(name="movie_id")
     private int movieId;
@@ -29,6 +27,5 @@ public class Classification {
     private LocalDate date = LocalDate.now();
 
     @Column(name ="isdeleted")
-    private boolean isdeleted;
-
+    private boolean isdeleted = false;
 }
