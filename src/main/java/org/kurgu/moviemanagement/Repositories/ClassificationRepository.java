@@ -17,4 +17,7 @@ public interface ClassificationRepository extends JpaRepository<Classification, 
     @Query("SELECT c FROM classification c WHERE c.classificationId = :id AND c.isdeleted = false")
     Optional<Classification> findActiveById(@Param("id") int classificationId);
 
+    boolean existsByMovieId(int movieId);
+
+    boolean existsByCategoryId(int categoryId);
 }
